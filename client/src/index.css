@@ -1,8 +1,64 @@
 :root {
-
+  min-height: 100%;
 }
 
 .my-font {
   font-family: 'Fasthand', cursive;
   font-size: x-large;
+}
+
+.my-font:hover {
+  font-family: 'Fasthand', cursive;
+  font-size: x-large;
+}
+
+.my-pos {
+  position: absolute;
+  top: 100%;
+  right: 2em;
+  background-color: #f8f9fa;
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-pos:hover {
+  background-color: black;
+  color: #fff;
+  cursor: pointer;
+}
+
+.my-text-font-one {
+  /* font-family: 'Fasthand', cursive;
+  font-family: 'Rajdhani', sans-serif; */
+  font-family: 'Roboto Condensed';
+}
+
+.custom-container {
+  max-width: 920px;
+}
+
+.custom-img {
+  height: 180px;
+  width: 180px;
+  border-radius: 100%;
+}
+
+.custom-height {
+  
+}
+
+.custom-img-fill {
+  max-height: 10em;
+  min-width: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 500px) {
+  .custom-img-setting {
+    
+  }
 }

@@ -1,14 +1,14 @@
-import Header from "../components/Header";
+import Header from "../components/Header.jsx";
 
-const ContactPage = () => {
+const AboutPage = () => {
     return (
         <>
             <Header />
             <div className="container">
-                Contact Page
+                About Page
             </div>
         </>
     );
 };
 
-export default ContactPage;
+export default AboutPage;
