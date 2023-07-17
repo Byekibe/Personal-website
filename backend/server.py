@@ -3,8 +3,11 @@ from dotenv import load_dotenv
 from flask_cors import CORS
 load_dotenv()
 import os
+import smtplib
 
 PORT = os.getenv('PORT')
+MY_EMAIL = os.getenv('EMAIL')
+PASSWORD = os.getenv('PASSWORD')
 
 app = Flask(__name__)
 CORS(app)
@@ -28,6 +31,15 @@ def mail():
     email = request.json.get("email")
     message = request.json.get("message")
     print(contact_name, email, message)
+    password = PASSWORD
+    with smtplib.SMTP("smtp.gmail.com") as connection:
+        connection.starttls()
+        connection.login(user=MY_EMAIL, password=password)
+        connection.sendmail(
+            from_addr=MY_EMAIL,
+            to_addrs=MY_EMAIL,
+            msg=f"Subject: FROM {contact_name} \n\n {message}"
+        )
     return { "msg": f"Thanks {contact_name} your message has been sent!" }
 
 
