@@ -13,10 +13,10 @@
 }
 
 .my-pos {
-  position: absolute;
-  top: 100%;
-  right: 2em;
-  background-color: #f8f9fa;
+  position: fixed;
+  bottom: 1em;
+  right: 1.5em;
+  background-color: #969899;
   height: 60px;
   width: 60px;
   border-radius: 100%;
@@ -60,5 +60,26 @@
 @media (min-width: 500px) {
   .custom-img-setting {
     
+  }
+}
+
+
+@media(max-width: 700px) {
+  .card-custom-width {
+    min-width: 100%;
+  }
+}
+
+@media (min-width: 700px) {
+  .card-custom-width {
+    min-width: 80%;
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 949px) {
+  .card-custom-width {
+    min-width: 80%;
+    max-width: 90%;
   }
 }
