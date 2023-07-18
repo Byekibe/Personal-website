@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Spinner from '../components/Spinner.jsx';
+import Spinner from '../components/spinner/Spinner.jsx';
 
 const ContactForm = () => {
     const text = "Send Message"
@@ -8,13 +8,15 @@ const ContactForm = () => {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
+    const [backendMessage, setBackendMessage] = useState(null);
+
     useEffect(() => {
         const timer = setTimeout(() => { 
-            setStatus(text)
-        }, 2000);
+            setBackendMessage(null)
+        }, 4000);
 
         return () => clearTimeout(timer);
-    }, [status]);
+    }, [backendMessage]);
 
     const handleClick = () => {
         setTimeout(() => {
@@ -36,11 +38,39 @@ const ContactForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Submitted");
+        console.log(name, email, message);
+        const url = "http://localhost:7000/mail"
+        const postData = async () => {
+            const reqOpts = {
+                method: "POST",
+                headers: {
+                    "Content-Type": 'application/json'
+                },
+                body: JSON.stringify({ name: name, email: email, message: message })
+            };
+
+            const res = await fetch(url, reqOpts);
+            const data = await res.json();
+            setBackendMessage(data.msg)
+
+            setEmail("");
+            setName("");
+            setMessage("");
+        };
+
+        postData();
     }
 
 
     return (
+        <>
+        {
+            backendMessage !== null && (
+                <div className="alert alert-success" role="alert">
+                    {backendMessage}
+                </div>
+            )
+        }
         <div className="card card-custom-width p-3">
             <form onSubmit={handleSubmit}>
                 <div className="form-floating mb-3">
@@ -82,6 +112,7 @@ const ContactForm = () => {
                 <button className="btn btn-outline-secondary" type="submit">{status}</button>
             </form>
         </div>
+        </>
     );
 };
 

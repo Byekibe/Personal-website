@@ -83,3 +83,12 @@
     max-width: 90%;
   }
 }
+
+.small-spinner {
+  height: 20px;
+  width: 20px;
+}
+
+.about-tech-start ul li {
+  list-style-type: none;
+}
