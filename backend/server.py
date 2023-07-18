@@ -2,6 +2,7 @@ from flask import Flask, request
 from dotenv import load_dotenv
 from flask_cors import CORS
 load_dotenv()
+import datetime as dt
 import os
 import smtplib
 
@@ -23,7 +24,16 @@ def contact():
 
 @app.route("/date_year")
 def date_year():
-    return { "msg": "Year" }
+    now = dt.datetime.now()
+    year = now.year
+    print(year)
+    return { "msg": year }
+
+@app.route("/experience")
+def experience():
+    python_exp = 5
+    js_exp = 4
+    return {"python_exp": python_exp, "js_exp": js_exp }
 
 @app.route("/mail", methods=["GET", "POST"])
 def mail():
