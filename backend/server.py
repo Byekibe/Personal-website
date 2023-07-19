@@ -41,16 +41,35 @@ def mail():
     email = request.json.get("email")
     message = request.json.get("message")
     print(contact_name, email, message)
-    password = PASSWORD
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()
-        connection.login(user=MY_EMAIL, password=password)
+        connection.login(user=MY_EMAIL, password=PASSWORD)
         connection.sendmail(
             from_addr=MY_EMAIL,
             to_addrs=MY_EMAIL,
             msg=f"Subject: FROM {contact_name} \n\n {message}"
         )
     return { "msg": f"Thanks {contact_name} your message has been sent!" }
+
+@app.route("/hire", methods=["GET", "POST"])
+def hire():
+    location = request.json.get('location')
+    email = request.json.get('email')
+    address = request.json.get('address')
+    city = request.json.get('city')
+    country = request.json.get('country')
+    code = request.json.get('code')
+    print(location, email, address, city, country, code)
+    with smtplib.SMTP("smtp.gmail.com") as connection:
+        connection.starttls()
+        connection.login(user=MY_EMAIL, password=PASSWORD)
+        connection.sendmail(
+            from_addr=MY_EMAIL,
+            to_addrs=MY_EMAIL,
+            msg=f"Subject: YOU ARE HIRED! \n\n Location: {location}, Email: {email}, Address: {address}, City: {city}, Country: {country}, Code: {code}"
+        )
+
+    return { "msg": "Thanks message sent" }, 200
 
 
 if __name__=="__main__":
