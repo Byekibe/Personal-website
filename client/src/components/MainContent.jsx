@@ -4,7 +4,7 @@ import { BsBoxArrowUpRight } from 'react-icons/bs';
 const MainContent = () => {
     return (
         <div className="">
-            <h1 className="my-4 text-center">Hi! I'm Peter</h1>
+            <h1 className="my-4 text-center font-poppins">Hi! I'm Peter</h1>
             <div className="fs-4 text-center fw-lighter lh-lg">
                 <p className="lead font-monospace">I am a software dev. <Link to="/about"><BsBoxArrowUpRight /></Link></p>
                 <p className="fs-4 lh-lg fw-lighter">You can call me Pierre if you like, yes I love 🤩 🤩 it but won't say. </p>

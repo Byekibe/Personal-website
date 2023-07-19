@@ -14,7 +14,7 @@
 
 .my-pos {
   position: fixed;
-  bottom: 1em;
+  bottom: 5em;
   right: 1.5em;
   background-color: #969899;
   height: 60px;
@@ -91,4 +91,29 @@
 
 .about-tech-start ul li {
   list-style-type: none;
+}
+
+
+.about-hr {
+  border-bottom: 2px solid rgb(196, 192, 192);
+  margin: 1em 0; 
+}
+
+.hire-hr {
+  border-bottom: 2px solid rgb(196, 192, 192);
+  margin: 1em 0; 
+}
+
+.interest ul li {
+  list-style-type: none;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+@media(max-width: 970px) {
+  .custom-form-margin {
+    margin: 2em;
+  }
 }
