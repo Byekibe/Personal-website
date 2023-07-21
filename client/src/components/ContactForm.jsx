@@ -38,8 +38,7 @@ const ContactForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(name, email, message);
-        const url = "http://localhost:7000/mail"
+        const url = "http://localhost:7000/api/mail"
         const postData = async () => {
             const reqOpts = {
                 method: "POST",

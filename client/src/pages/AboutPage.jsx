@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Footer from "../components/Footer.jsx";
 
 const AboutPage = () => {
-    const url = "http://localhost:7000/experience";
+    const url = "http://localhost:7000/api/experience";
 
     const [pythonExperience, setPythonExperience] = useState(null);
     const [jsExperience, setJsExperience] = useState(null);

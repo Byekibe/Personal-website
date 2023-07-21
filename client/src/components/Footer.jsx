@@ -6,7 +6,7 @@ import SmallSpinner from './spinner/SmallSpinner.jsx';
 const Footer = () => {
     const [year, setYear] = useState(null);
 
-    const url = "http://localhost:7000/date_year"
+    const url = "http://localhost:7000/api/date_year"
     useEffect(() => {
         const fetchYear = async () => {
             const res = await fetch(url);
