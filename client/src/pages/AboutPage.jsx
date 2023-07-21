@@ -50,7 +50,7 @@ const AboutPage = () => {
                 </div>
 
                 <div className="text-center interest">
-                    <h2>Area of Interest</h2>
+                    <h2>Areas of Interest</h2>
                     <ul>
                         <li className="fs-4 lh-lg fw-lighter">Containerization, Kubernetes & Networking</li>
                         <li className="fs-4 lh-lg fw-lighter">Perfomance and Caching algorithms</li>
