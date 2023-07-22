@@ -3,7 +3,7 @@ import Footer from "../components/Footer.jsx";
 import { useState } from "react";
 
 const HirePage = () => {
-    const url = "http://localhost:7000/api/hire"
+    const url = "/api/hire"
     const [location, setLocation] = useState("");
     const [email, setEmail] = useState("");
     const [address, setAddress] = useState("");
