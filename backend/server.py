@@ -13,29 +13,29 @@ PASSWORD = os.getenv('PASSWORD')
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/")
+@app.route("/api")
 def home():
     return { "msg": "Home" }
 
 
-@app.route("/contact")
+@app.route("/api/contact")
 def contact():
     return { "msg": "Contact" }
 
-@app.route("/date_year")
+@app.route("/api/date_year")
 def date_year():
     now = dt.datetime.now()
     year = now.year
     print(year)
     return { "msg": year }
 
-@app.route("/experience")
+@app.route("/api/experience")
 def experience():
     python_exp = 5
     js_exp = 4
     return {"python_exp": python_exp, "js_exp": js_exp }
 
-@app.route("/mail", methods=["GET", "POST"])
+@app.route("/api/mail", methods=["GET", "POST"])
 def mail():
     contact_name = request.json.get("name")
     email = request.json.get("email")
@@ -51,7 +51,7 @@ def mail():
         )
     return { "msg": f"Thanks {contact_name} your message has been sent!" }
 
-@app.route("/hire", methods=["GET", "POST"])
+@app.route("/api/hire", methods=["GET", "POST"])
 def hire():
     location = request.json.get('location')
     email = request.json.get('email')
