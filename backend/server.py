@@ -72,5 +72,4 @@ def hire():
     return { "msg": "Thanks message sent" }, 200
 
 
-if __name__=="__main__":
-    app.run(port=PORT, debug=True)
+
