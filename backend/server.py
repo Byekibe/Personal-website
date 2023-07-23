@@ -7,8 +7,8 @@ import os
 import smtplib
 
 PORT = os.getenv('PORT')
-MY_EMAIL = os.getenv('EMAIL')
-PASSWORD = os.getenv('PASSWORD')
+MY_EMAIL = "kibetpeter95@gmail.com"
+PASSWORD = "rissnibgzstkmfhy" 
 
 app = Flask(__name__)
 CORS(app)
