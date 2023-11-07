@@ -8,8 +8,8 @@ import smtplib
 from models import connect_to_db
 
 PORT = os.getenv('PORT')
-MY_EMAIL = "kibetpeter95@gmail.com" 
-PASSWORD = "rissnibgzstkmfhy" 
+MY_EMAIL = os.getenv('email')
+PASSWORD = os.getenv('PASSWORD') 
 
 app = Flask(__name__)
 CORS(app)
@@ -27,13 +27,16 @@ def contact():
 def date_year():
     now = dt.datetime.now()
     year = now.year
-    print(year)
     return { "msg": year }
 
 @app.route("/api/experience")
 def experience():
-    python_exp = 5
-    js_exp = 4
+    now = dt.datetime.now()
+    year = now.year
+    year = int(year)
+    python_exp = year - 2019
+    js_exp = year - 2019
+
     return {"python_exp": python_exp, "js_exp": js_exp }
 
 @app.route("/api/mail", methods=["GET", "POST"])
@@ -42,17 +45,17 @@ def mail():
     email = request.json.get("email")
     message = request.json.get("message")
     print(contact_name, email, message)
-    with smtplib.SMTP("smtp.gmail.com") as connection:
+    with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.starttls()
         connection.login(user=MY_EMAIL, password=PASSWORD)
         connection.sendmail(
             from_addr=MY_EMAIL,
             to_addrs=MY_EMAIL,
-            msg=f"Subject: FROM {contact_name} \n\n {message}"
+            msg=f"Subject: FROM {contact_name} EMAILER {email} \n\n {message}, EMAILER: {email}"
         )
     return { "msg": f"Thanks {contact_name} your message has been sent!" }
 
-@app.route("/hire", methods=["GET", "POST"])
+@app.route("/api/hire", methods=["GET", "POST"])
 def hire():
     location = request.json.get('location')
     email = request.json.get('email')
@@ -61,7 +64,7 @@ def hire():
     country = request.json.get('country')
     code = request.json.get('code')
     # print(location, email, address, city, country, code)
-    with smtplib.SMTP("smtp.gmail.com") as connection:
+    with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.starttls()
         connection.login(user=MY_EMAIL, password=PASSWORD)
         connection.sendmail(
