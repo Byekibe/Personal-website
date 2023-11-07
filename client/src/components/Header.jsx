@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const Header = () => {
+    const [theme, setTheme] = useState(false);
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container">
