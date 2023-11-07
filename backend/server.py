@@ -8,8 +8,8 @@ import smtplib
 from models import connect_to_db
 
 PORT = os.getenv('PORT')
-MY_EMAIL = os.getenv('EMAIL')
-PASSWORD = os.getenv('PASSWORD')
+MY_EMAIL = "kibetpeter95@gmail.com"
+PASSWORD = "rissnibgzstkmfhy" 
 
 app = Flask(__name__)
 CORS(app)
@@ -52,12 +52,7 @@ def mail():
         )
     return { "msg": f"Thanks {contact_name} your message has been sent!" }
 
-@app.route("/api/save_message")
-def save_message():
-    connect_to_db()
-    return {"msg": "Message sent"}
-
-@app.route("/api/hire", methods=["GET", "POST"])
+@app.route("/hire", methods=["GET", "POST"])
 def hire():
     location = request.json.get('location')
     email = request.json.get('email')
