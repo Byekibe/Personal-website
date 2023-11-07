@@ -8,7 +8,7 @@ import smtplib
 from models import connect_to_db
 
 PORT = os.getenv('PORT')
-MY_EMAIL = "kibetpeter95@gmail.com"
+MY_EMAIL = "kibetpeter95@gmail.com" 
 PASSWORD = "rissnibgzstkmfhy" 
 
 app = Flask(__name__)
