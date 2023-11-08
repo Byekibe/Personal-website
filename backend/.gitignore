@@ -4,6 +4,9 @@ my-site
 __pycache__/
 *.py[cod]
 *$py.class
+my-sitee/
+/my-sitee
+.my-sitee
 
 # C extensions
 *.so
