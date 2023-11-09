@@ -7,7 +7,7 @@ const Footer = () => {
     const [year, setYear] = useState(null);
 
     // const url = "/api/date_year"
-    const url = "http://localhost:7000/api/date_year";
+    const url = "/api/date_year";
     useEffect(() => {
         const fetchYear = async () => {
             const res = await fetch(url);
