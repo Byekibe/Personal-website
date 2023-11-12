@@ -1,23 +1,11 @@
 import { Link } from 'react-router-dom';
 import { BsTwitter, BsGithub, BsLinkedin } from 'react-icons/bs';
-import { useEffect, useState } from 'react';
-import SmallSpinner from './spinner/SmallSpinner.jsx';
+
 
 const Footer = () => {
-    const [year, setYear] = useState(null);
+    const date = new Date()
+    const year = date.getFullYear();
 
-    // const url = "/api/date_year"
-    const url = "/api/date_year";
-    useEffect(() => {
-        const fetchYear = async () => {
-            const res = await fetch(url);
-            const data = await res.json();
-            setYear(data.msg)
-
-        };
-
-        fetchYear();
-    }, [])
     return (
             <div className="container">
                 <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -25,7 +13,7 @@ const Footer = () => {
                     <a href="/" className="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
                         <svg className="bi" width="30" height="24"><use xlinkHref="#bootstrap"/></svg>
                     </a>
-                    <span className="mb-3 mb-md-0 text-body-secondary">&copy; {year === null? <SmallSpinner /> : year} Peter Kibet Byegon</span>
+                    <span className="mb-3 mb-md-0 text-body-secondary">&copy; {year} Peter Kibet Byegon</span>
                     </div>
 
                     <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">

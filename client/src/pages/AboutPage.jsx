@@ -5,22 +5,15 @@ import { Link } from "react-router-dom";
 import Footer from "../components/Footer.jsx";
 
 const AboutPage = () => {
+    const year = new Date().getFullYear()
+
+    
+    // const url = "http://localhost:8000/api/experience";
     // const url = "/api/experience";
-    const url = "/api/experience";
 
-    const [pythonExperience, setPythonExperience] = useState(null);
-    const [jsExperience, setJsExperience] = useState(null);
+    const jsExperience = Number(year) - 2019;
+    const pythonExperience = Number(year) - 2019;
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await fetch(url);
-            const data = await res.json();
-            setPythonExperience(data.python_exp)
-            setJsExperience(data.js_exp)
-        };
-
-        fetchData();
-    }, [])
     return (
         <>
             <Header />
