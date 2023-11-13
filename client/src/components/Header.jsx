@@ -24,7 +24,7 @@ const Header = () => {
           className="collapse navbar-collapse justify-content-end"
           id="navbarNav"
         >
-          <ul className="navbar-nav">
+          <ul className="navbar-nav justify-content-end">
             <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/">
                 Home
